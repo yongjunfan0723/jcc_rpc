@@ -11,6 +11,13 @@
 npm install jcc_rpc
 ```
 
+## Prompt
+
+**Breaking Changes**
+
+Breaking changes since v0.3.0, deprecated the JcExchange class, if you used the JcExchange class in the previous version, see [Previous JcExchange](https://github.com/JCCDex/jcc_rpc/blob/master/docs/exchange.md)  
+recommended to use explorer and nodeRpc service instead of exchange service, see [Explorer Doc](https://github.com/JCCDex/JingChang-Document/blob/master/zh-CN/Jingchang-Explorer-Server.md),[nodeRpc](https://github.com/JCCDex/jcc_rpc/blob/master/src/node_rpc.ts)
+
 ## Docs
 
 see [docs](https://github.com/JCCDex/jcc_rpc/tree/master/docs)

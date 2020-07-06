@@ -1,17 +1,5 @@
 import JcBase from "./base";
-const axios = require("axios");
-
-const service = axios.create({
-  timeout: 30000
-});
-service.interceptors.response.use(
-  (response) => {
-    return response.data;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+import { service } from "./service";
 
 /**
  * request data from node and submit data to node directly, instead of `JcExchange` class

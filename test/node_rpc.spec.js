@@ -62,6 +62,35 @@ describe("test JcNodeRpc", function() {
     });
   });
 
+  describe("test requestTransaction", () => {
+    after(() => {
+      sandbox.restore();
+    });
+
+    it("call with right parameters", async () => {
+      const inst = new JcNodeRpc(["https://srje071qdew231.swtc.top"]);
+      const spy = sandbox.spy(service, "service");
+      const hash = "2494A8394842B3F5B8E3D969C54C7472EC7CBD6528704C616F2CC0E64A8A27DA";
+      await inst.requestTransaction(hash);
+      expect(spy.calledOnce).to.true;
+      expect(
+        spy.getCall(0).calledWithExactly({
+          data: {
+            method: "tx",
+            params: [
+              {
+                binary: false,
+                transaction: hash
+              }
+            ]
+          },
+          method: "post",
+          url: "https://srje071qdew231.swtc.top"
+        })
+      ).to.true;
+    });
+  });
+
   describe("test createOrder", () => {
     after(() => {
       sandbox.restore();
